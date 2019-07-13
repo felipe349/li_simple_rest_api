@@ -6,7 +6,8 @@ import br.com.felipe.restapi.mapper.PessoaMapper;
 import br.com.felipe.restapi.service.PessoaService;
 import org.springframework.web.bind.annotation.*;
 
-@RestController("/pessoa")
+@RestController
+@RequestMapping("/pessoa")
 public class PessoaController {
 
     private final PessoaService service;

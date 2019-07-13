@@ -1,21 +1,23 @@
 package br.com.felipe.restapi.service;
 
-import br.com.felipe.restapi.model.Pessoa;
+import br.com.felipe.restapi.entity.PessoaEntity;
 import br.com.felipe.restapi.repository.PessoaRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor
 public class PessoaService {
 
     private final PessoaRepository repository;
 
-    public Pessoa getPessoa(String cpf) {
+    public PessoaService(PessoaRepository repository) {
+        this.repository = repository;
+    }
+
+    public PessoaEntity getPessoa(String cpf) {
         return repository.findByCpf(cpf);
     }
 
-    public void storePessoa(Pessoa pessoa) {
-        repository.save(pessoa);
+    public void storePessoa(PessoaEntity pessoaEntity) {
+        repository.save(pessoaEntity);
     }
 }
